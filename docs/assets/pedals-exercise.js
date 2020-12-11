@@ -1005,7 +1005,7 @@
   });
   _exports.default = void 0;
 
-  var _dec, _dec2, _dec3, _class, _descriptor, _descriptor2, _temp;
+  var _dec, _dec2, _dec3, _dec4, _dec5, _class, _descriptor, _temp;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -1018,20 +1018,17 @@
   const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
   /*
     <BsForm {{on 'submit' this.submit}} as |form|>
-      <div class="form-group">
+      <form.group>
           <label for="gamepadSelect">GamepadID</label>
-          <select class="form-control" id="gamepadSelect">
+          <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change' this.changeGamepadId}}>
               {{#each-in this.gamepad.controllers as |key|}}
-              <option>{{key}}</option>
+                  <option>{{key}}</option>
               {{/each-in}}
           </select>
-      </div>
+      </form.group>
       <form.group>
           <label for="AccAxeSelect">Acceleration Axe</label>
-          <select class="form-control" id="AccAxeSelect">
-            {{#each this.gamepad.con as |item|}}
-              {{item}}
-            {{/each}}
+          <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
               <option>0</option>
               <option>1</option>
               <option>2</option>
@@ -1041,7 +1038,7 @@
       </form.group>
       <form.group>
           <label for="BrakeAxeSelect">Brake Axe</label>
-          <select class="form-control" id="BrakeAxeSelect">
+          <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change' this.changeBrakeAxis}}>
               <option>0</option>
               <option>1</option>
               <option>2</option>
@@ -1051,22 +1048,26 @@
       </form.group>
       <form.submitButton>Save</form.submitButton>
   </BsForm>
+  
+  {{this.gamepad.accValue}} - {{this.gamepad.accValue}}
   */
   {
-    "id": "YfCxWO1Y",
-    "block": "{\"symbols\":[\"form\",\"item\",\"( unused value )\",\"key\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"div\"],[14,0,\"form-group\"],[12],[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[10,\"select\"],[14,0,\"form-control\"],[14,1,\"gamepadSelect\"],[12],[2,\"\\n\"],[6,[37,2],[[30,[36,1],[[32,0,[\"gamepad\",\"controllers\"]]],null]],null,[[\"default\"],[{\"statements\":[[2,\"            \"],[10,\"option\"],[12],[1,[32,4]],[13],[2,\"\\n\"]],\"parameters\":[3,4]}]]],[2,\"        \"],[13],[2,\"\\n    \"],[13],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[10,\"select\"],[14,0,\"form-control\"],[14,1,\"AccAxeSelect\"],[12],[2,\"\\n\"],[6,[37,2],[[30,[36,3],[[30,[36,3],[[32,0,[\"gamepad\",\"con\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"            \"],[1,[32,2]],[2,\"\\n\"]],\"parameters\":[2]}]]],[2,\"            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[10,\"select\"],[14,0,\"form-control\"],[14,1,\"BrakeAxeSelect\"],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]]],\"hasEval\":false,\"upvars\":[\"on\",\"-each-in\",\"each\",\"-track-array\"]}",
+    "id": "6Eku5/4U",
+    "block": "{\"symbols\":[\"form\",\"( unused value )\",\"key\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n\"],[6,[37,2],[[30,[36,1],[[32,0,[\"gamepad\",\"controllers\"]]],null]],null,[[\"default\"],[{\"statements\":[[2,\"                \"],[10,\"option\"],[12],[1,[32,3]],[13],[2,\"\\n\"]],\"parameters\":[2,3]}]]],[2,\"        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"accValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\",\"-each-in\",\"each\"]}",
     "meta": {
       "moduleName": "pedals-exercise/components/pedals-settings.hbs"
     }
   });
 
-  let PlSettingsComponent = (_dec = Ember.inject.service, _dec2 = Ember.inject.service, _dec3 = Ember._action, (_class = (_temp = class PlSettingsComponent extends _component.default {
+  let PlSettingsComponent = (_dec = Ember.inject.service, _dec2 = Ember._action, _dec3 = Ember._action, _dec4 = Ember._action, _dec5 = Ember._action, (_class = (_temp = class PlSettingsComponent extends _component.default {
     constructor(...args) {
       super(...args);
 
-      _initializerDefineProperty(this, "settings", _descriptor, this);
+      _initializerDefineProperty(this, "gamepad", _descriptor, this);
+    }
 
-      _initializerDefineProperty(this, "gamepad", _descriptor2, this);
+    get settings() {
+      return this.gamepad.settings;
     }
 
     get gamepadAxis() {
@@ -1078,17 +1079,24 @@
       return false;
     }
 
-  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "settings", [_dec], {
+    changeGamepadId(event) {
+      this.settings.gamepadId = Number(event.target.value);
+    }
+
+    changeAccAxis(event) {
+      this.settings.accAxis = Number(event.target.value);
+    }
+
+    changeBrakeAxis(event) {
+      this.settings.brakeAxis = Number(event.target.value);
+    }
+
+  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "gamepad", [_dec], {
     configurable: true,
     enumerable: true,
     writable: true,
     initializer: null
-  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "gamepad", [_dec2], {
-    configurable: true,
-    enumerable: true,
-    writable: true,
-    initializer: null
-  }), _applyDecoratedDescriptor(_class.prototype, "submit", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "submit"), _class.prototype)), _class));
+  }), _applyDecoratedDescriptor(_class.prototype, "submit", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "submit"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "changeGamepadId", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "changeGamepadId"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "changeAccAxis", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "changeAccAxis"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "changeBrakeAxis", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "changeBrakeAxis"), _class.prototype)), _class));
   _exports.default = PlSettingsComponent;
 
   Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, PlSettingsComponent);
@@ -2095,7 +2103,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+b736301b"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+96bf576f"});
           }
         
 //# sourceMappingURL=pedals-exercise.map

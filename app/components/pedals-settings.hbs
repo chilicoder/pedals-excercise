@@ -1,18 +1,15 @@
 <BsForm {{on 'submit' this.submit}} as |form|>
-    <div class="form-group">
+    <form.group>
         <label for="gamepadSelect">GamepadID</label>
-        <select class="form-control" id="gamepadSelect">
+        <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change' this.changeGamepadId}}>
             {{#each-in this.gamepad.controllers as |key|}}
-            <option>{{key}}</option>
+                <option>{{key}}</option>
             {{/each-in}}
         </select>
-    </div>
+    </form.group>
     <form.group>
         <label for="AccAxeSelect">Acceleration Axe</label>
-        <select class="form-control" id="AccAxeSelect">
-          {{#each this.gamepad.con as |item|}}
-            {{item}}
-          {{/each}}
+        <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -22,7 +19,7 @@
     </form.group>
     <form.group>
         <label for="BrakeAxeSelect">Brake Axe</label>
-        <select class="form-control" id="BrakeAxeSelect">
+        <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change' this.changeBrakeAxis}}>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -32,3 +29,5 @@
     </form.group>
     <form.submitButton>Save</form.submitButton>
 </BsForm>
+
+{{this.gamepad.accValue}} - {{this.gamepad.accValue}}
