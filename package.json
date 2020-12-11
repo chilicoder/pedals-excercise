@@ -17,15 +17,19 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "npm-run-all lint:* test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "github": "ember build -e github --output-path docs"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^1.0.2",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.5.3",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
+    "ember-bootstrap": "^4.5.0",
     "ember-cli": "~3.22.0",
     "ember-cli-app-version": "^4.0.0",
     "ember-cli-babel": "^7.22.1",
@@ -38,6 +42,7 @@
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.2",
     "ember-load-initializers": "^2.1.1",
+    "ember-local-storage": "^1.7.2",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.2",
@@ -56,5 +61,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "plotly.js": "^1.58.2"
   }
 }

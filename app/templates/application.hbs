@@ -1,5 +1,13 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
+<BsNav @type="pills" as |nav|>
+  <nav.item>
+    <nav.linkTo @route="index">
+      Main Page
+    </nav.linkTo>
+  </nav.item>
+  <nav.item>
+    <nav.linkTo @route="settings" >
+      Settings
+    </nav.linkTo>
+  </nav.item>
+</BsNav>
 {{outlet}}

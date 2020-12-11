@@ -1,0 +1,34 @@
+<BsForm {{on 'submit' this.submit}} as |form|>
+    <div class="form-group">
+        <label for="gamepadSelect">GamepadID</label>
+        <select class="form-control" id="gamepadSelect">
+            {{#each-in this.gamepad.controllers as |key|}}
+            <option>{{key}}</option>
+            {{/each-in}}
+        </select>
+    </div>
+    <form.group>
+        <label for="AccAxeSelect">Acceleration Axe</label>
+        <select class="form-control" id="AccAxeSelect">
+          {{#each this.gamepad.con as |item|}}
+            {{item}}
+          {{/each}}
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </form.group>
+    <form.group>
+        <label for="BrakeAxeSelect">Brake Axe</label>
+        <select class="form-control" id="BrakeAxeSelect">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </form.group>
+    <form.submitButton>Save</form.submitButton>
+</BsForm>
