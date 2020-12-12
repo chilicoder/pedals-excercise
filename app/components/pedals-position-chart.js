@@ -24,7 +24,7 @@ export default class PlChartComponent extends Component {
 
         let layout = {
             xaxis: { range: [start, end] },
-            yaxis: { range: [0, 260] },
+            yaxis: { range: [-1, 1] },
             margin: { t: 0 }
         };
 
