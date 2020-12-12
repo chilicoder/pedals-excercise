@@ -11,7 +11,7 @@ export default class GamepadService extends Service {
 
     get accValue() {
         let result = 0;
-        if (this.settings.gamepadId && this.settings.accAxis) {
+        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.accAxis == 'number')) {
             result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis]
         }
         return result;
@@ -19,7 +19,7 @@ export default class GamepadService extends Service {
 
     get brakeValue() {
         let result = 0;
-        if (this.settings.gamepadId && this.settings.brakeAxis) {
+        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.accAxis == 'number'))  {
             result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis]
         }
         return result;

@@ -961,23 +961,34 @@
     }
 
     _replot(element) {
-      _plotly.default.newPlot(element, [{
-        x: this.time,
-        y: this.acc
-      }], {
+      let now = Date.now();
+      let start = new Date(now - 10000);
+      let end = new Date(now + 10000);
+      let layout = {
+        xaxis: {
+          range: [start, end]
+        },
+        yaxis: {
+          range: [0, 260]
+        },
         margin: {
           t: 0
         }
-      });
+      };
+
+      _plotly.default.newPlot(element, [{
+        x: this.time,
+        y: this.acc
+      }], layout);
     }
 
     _getLastPositins() {
       // let lastValues = this.gamepad.getLastPositions();
-      let lastAcc = this.acc[this.acc.length - 1];
-      let lastBrake = this.brake[this.brake.length - 1]; // let lastAcc = this.acc[this.acc.length-1];
-
-      this.acc.push(lastAcc + Math.random() * 2 - 1);
-      this.brake.push(lastBrake + Math.random() * 2 - 1);
+      // let lastAcc = this.acc[this.acc.length - 1];
+      // let lastBrake = this.brake[this.brake.length - 1];
+      // let lastAcc = this.acc[this.acc.length-1];
+      this.acc.push(this.gamepad.accValue);
+      this.brake.push(this.gamepad.brakeValue);
       this.time.push(new Date()); // let brake = Math.random() * 100;
       // let time = new Date();
       // positions.push({ acc, brake, time })
@@ -1113,6 +1124,39 @@
       return _welcomePage.default;
     }
   });
+});
+;define("pedals-exercise/controllers/application", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _dec, _class, _descriptor, _temp;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let ApplicationController = (_dec = Ember.inject.service, (_class = (_temp = class ApplicationController extends Ember.Controller {
+    constructor(...args) {
+      super(...args);
+
+      _initializerDefineProperty(this, "gamepad", _descriptor, this);
+    }
+
+  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "gamepad", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  })), _class));
+  _exports.default = ApplicationController;
 });
 ;define("pedals-exercise/data-adapter", ["exports", "@ember-data/debug"], function (_exports, _debug) {
   "use strict";
@@ -1837,7 +1881,7 @@
     get accValue() {
       let result = 0;
 
-      if (this.settings.gamepadId && this.settings.accAxis) {
+      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.accAxis == 'number') {
         result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis];
       }
 
@@ -1847,7 +1891,7 @@
     get brakeValue() {
       let result = 0;
 
-      if (this.settings.gamepadId && this.settings.brakeAxis) {
+      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.accAxis == 'number') {
         result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis];
       }
 
@@ -2103,7 +2147,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+96bf576f"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+d04bb75d"});
           }
         
 //# sourceMappingURL=pedals-exercise.map

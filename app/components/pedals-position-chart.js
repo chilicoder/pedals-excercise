@@ -17,21 +17,31 @@ export default class PlChartComponent extends Component {
     }
 
     _replot(element) {
+        let now = Date.now();
+        let start = new Date(now - 10000);
+        let end = new Date(now + 10000);
+
+
+        let layout = {
+            xaxis: { range: [start, end] },
+            yaxis: { range: [0, 260] },
+            margin: { t: 0 }
+        };
+
+
         Plotly.newPlot(element, [{
             x: this.time,
             y: this.acc
-        }], {
-            margin: { t: 0 }
-        });
+        }], layout);
     }
 
     _getLastPositins() {
         // let lastValues = this.gamepad.getLastPositions();
-        let lastAcc = this.acc[this.acc.length-1];
-        let lastBrake = this.brake[this.brake.length-1];
+        // let lastAcc = this.acc[this.acc.length - 1];
+        // let lastBrake = this.brake[this.brake.length - 1];
         // let lastAcc = this.acc[this.acc.length-1];
-        this.acc.push(lastAcc + Math.random() * 2 - 1);
-        this.brake.push(lastBrake + Math.random() * 2 - 1);
+        this.acc.push(this.gamepad.accValue);
+        this.brake.push(this.gamepad.brakeValue);
         this.time.push(new Date());
         // let brake = Math.random() * 100;
         // let time = new Date();
