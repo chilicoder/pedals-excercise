@@ -1031,10 +1031,13 @@
     <BsForm {{on 'submit' this.submit}} as |form|>
       <form.group>
           <label for="gamepadSelect">GamepadID</label>
-          <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change' this.changeGamepadId}}>
+          <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change'
+        this.changeGamepadId}}>
+              <option></option>
               {{#each-in this.gamepad.controllers as |key|}}
                   <option>{{key}}</option>
               {{/each-in}}
+              <option>1</option>
           </select>
       </form.group>
       <form.group>
@@ -1045,26 +1048,38 @@
               <option>2</option>
               <option>3</option>
               <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
           </select>
       </form.group>
       <form.group>
           <label for="BrakeAxeSelect">Brake Axe</label>
-          <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change' this.changeBrakeAxis}}>
+          <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change'
+        this.changeBrakeAxis}}>
               <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
           </select>
       </form.group>
       <form.submitButton>Save</form.submitButton>
   </BsForm>
-  
   {{this.gamepad.accValue}} - {{this.gamepad.accValue}}
   */
   {
-    "id": "6Eku5/4U",
-    "block": "{\"symbols\":[\"form\",\"( unused value )\",\"key\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n\"],[6,[37,2],[[30,[36,1],[[32,0,[\"gamepad\",\"controllers\"]]],null]],null,[[\"default\"],[{\"statements\":[[2,\"                \"],[10,\"option\"],[12],[1,[32,3]],[13],[2,\"\\n\"]],\"parameters\":[2,3]}]]],[2,\"        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"accValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\",\"-each-in\",\"each\"]}",
+    "id": "D0wI3dx2",
+    "block": "{\"symbols\":[\"form\",\"( unused value )\",\"key\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[13],[2,\"\\n\"],[6,[37,2],[[30,[36,1],[[32,0,[\"gamepad\",\"controllers\"]]],null]],null,[[\"default\"],[{\"statements\":[[2,\"                \"],[10,\"option\"],[12],[1,[32,3]],[13],[2,\"\\n\"]],\"parameters\":[2,3]}]]],[2,\"            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"accValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\",\"-each-in\",\"each\"]}",
     "meta": {
       "moduleName": "pedals-exercise/components/pedals-settings.hbs"
     }
@@ -2147,7 +2162,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+d04bb75d"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+a5cfc4e4"});
           }
         
 //# sourceMappingURL=pedals-exercise.map
