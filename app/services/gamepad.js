@@ -35,7 +35,7 @@ export default class GamepadService extends Service {
         let gamepad = e.gamepad;
         this.controllers[gamepad.index] = gamepad;
         if (typeof this.updateInterval == 'undefined') {
-            this.updateInterval = setInterval(this.scangamepads.bind(this), 20)
+            this.updateInterval = setInterval(this.scangamepads.bind(this), 5)
         }
 
     }

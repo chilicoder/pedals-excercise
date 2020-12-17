@@ -1929,7 +1929,7 @@
       this.controllers[gamepad.index] = gamepad;
 
       if (typeof this.updateInterval == 'undefined') {
-        this.updateInterval = setInterval(this.scangamepads.bind(this), 20);
+        this.updateInterval = setInterval(this.scangamepads.bind(this), 5);
       }
     }
 
@@ -2162,7 +2162,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+6e993183"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+e4b65299"});
           }
         
 //# sourceMappingURL=pedals-exercise.map
