@@ -18,8 +18,8 @@ export default class PlChartComponent extends Component {
 
     _replot(element) {
         let now = Date.now();
-        let start = new Date(now - 10000);
-        let end = new Date(now + 10000);
+        let start = new Date(now - 3000);
+        let end = new Date(now + 2000);
 
 
         let layout = {

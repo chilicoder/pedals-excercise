@@ -962,8 +962,8 @@
 
     _replot(element) {
       let now = Date.now();
-      let start = new Date(now - 10000);
-      let end = new Date(now + 10000);
+      let start = new Date(now - 3000);
+      let end = new Date(now + 2000);
       let layout = {
         xaxis: {
           range: [start, end]
@@ -2162,7 +2162,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+e4b65299"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+d631f533"});
           }
         
 //# sourceMappingURL=pedals-exercise.map
