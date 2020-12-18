@@ -32,6 +32,9 @@ export default class PlChartComponent extends Component {
         Plotly.newPlot(element, [{
             x: this.time,
             y: this.acc
+        }, {
+            x: this.time,
+            y: this.brake
         }], layout);
     }
 

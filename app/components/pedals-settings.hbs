@@ -3,11 +3,10 @@
         <label for="gamepadSelect">GamepadID</label>
         <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change'
       this.changeGamepadId}}>
-            {{#each-in this.gamepad.controllers as |key|}}
-                <option>{{key}}</option>
-            {{/each-in}}
-            <option></option>
+            <option>0</option>
             <option>1</option>
+            <option>2</option>
+            <option>3</option>
         </select>
     </form.group>
     <form.group>

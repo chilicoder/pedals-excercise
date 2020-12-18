@@ -979,6 +979,9 @@
       _plotly.default.newPlot(element, [{
         x: this.time,
         y: this.acc
+      }, {
+        x: this.time,
+        y: this.brake
       }], layout);
     }
 
@@ -1033,11 +1036,10 @@
           <label for="gamepadSelect">GamepadID</label>
           <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change'
         this.changeGamepadId}}>
-              {{#each-in this.gamepad.controllers as |key|}}
-                  <option>{{key}}</option>
-              {{/each-in}}
-              <option></option>
+              <option>0</option>
               <option>1</option>
+              <option>2</option>
+              <option>3</option>
           </select>
       </form.group>
       <form.group>
@@ -1078,8 +1080,8 @@
   {{this.gamepad.accValue}} - {{this.gamepad.brakeValue}}
   */
   {
-    "id": "ZUvtS4td",
-    "block": "{\"symbols\":[\"form\",\"( unused value )\",\"key\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n\"],[6,[37,2],[[30,[36,1],[[32,0,[\"gamepad\",\"controllers\"]]],null]],null,[[\"default\"],[{\"statements\":[[2,\"                \"],[10,\"option\"],[12],[1,[32,3]],[13],[2,\"\\n\"]],\"parameters\":[2,3]}]]],[2,\"            \"],[10,\"option\"],[12],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"brakeValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\",\"-each-in\",\"each\"]}",
+    "id": "u3bg0V/1",
+    "block": "{\"symbols\":[\"form\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"brakeValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\"]}",
     "meta": {
       "moduleName": "pedals-exercise/components/pedals-settings.hbs"
     }
@@ -1148,7 +1150,7 @@
   });
   _exports.default = void 0;
 
-  var _dec, _class, _descriptor, _temp;
+  var _dec, _dec2, _class, _descriptor, _descriptor2, _temp;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -1158,14 +1160,21 @@
 
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
-  let ApplicationController = (_dec = Ember.inject.service, (_class = (_temp = class ApplicationController extends Ember.Controller {
+  let ApplicationController = (_dec = Ember.inject.service, _dec2 = Ember.inject.service, (_class = (_temp = class ApplicationController extends Ember.Controller {
     constructor(...args) {
       super(...args);
 
       _initializerDefineProperty(this, "gamepad", _descriptor, this);
+
+      _initializerDefineProperty(this, "gamepad2", _descriptor2, this);
     }
 
   }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "gamepad", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "gamepad2", [_dec2], {
     configurable: true,
     enumerable: true,
     writable: true,
@@ -1882,19 +1891,30 @@
   });
   _exports.default = void 0;
 
-  var _dec, _dec2, _class, _descriptor, _descriptor2, _temp;
+  var _dec, _dec2, _class, _descriptor, _temp;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
-
   function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
 
-  let GamepadService = (_dec = Ember._tracked, _dec2 = Ember._tracked, (_class = (_temp = class GamepadService extends Ember.Service {
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  let GamepadService = (_dec = Ember.computed, _dec2 = Ember._tracked, (_class = (_temp = class GamepadService extends Ember.Service {
+    // gamepadId = localStorage.get()0,
+    // accAxis: 0,
+    // brakeAxis: 0
+    get settings() {
+      return {
+        gamepadId: 0,
+        accAxis: 2,
+        brakeAxis: 3
+      };
+    }
+
     get accValue() {
-      let result = 0;
+      let result = this.settings.counter;
 
       if (typeof this.settings.gamepadId == 'number' && typeof this.settings.accAxis == 'number') {
         result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis];
@@ -1906,7 +1926,7 @@
     get brakeValue() {
       let result = 0;
 
-      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.accAxis == 'number') {
+      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.brakeAxis == 'number') {
         result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis];
       }
 
@@ -1916,9 +1936,7 @@
     constructor() {
       super(...arguments);
 
-      _initializerDefineProperty(this, "settings", _descriptor, this);
-
-      _initializerDefineProperty(this, "controllers", _descriptor2, this);
+      _initializerDefineProperty(this, "controllers", _descriptor, this);
 
       window.addEventListener("gamepadconnected", this.connecthandler.bind(this));
       window.addEventListener("gamepaddisconnected", this.disconnecthandler.bind(this));
@@ -1953,14 +1971,7 @@
       }
     }
 
-  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "settings", [_dec], {
-    configurable: true,
-    enumerable: true,
-    writable: true,
-    initializer: function () {
-      return (0, _emberLocalStorage.storageFor)('settings');
-    }
-  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "controllers", [_dec2], {
+  }, _temp), (_applyDecoratedDescriptor(_class.prototype, "settings", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "settings"), _class.prototype), _descriptor = _applyDecoratedDescriptor(_class.prototype, "controllers", [_dec2], {
     configurable: true,
     enumerable: true,
     writable: true,
@@ -1969,6 +1980,20 @@
     }
   })), _class));
   _exports.default = GamepadService;
+});
+;define("pedals-exercise/services/gamepad2", ["exports", "ember-local-storage"], function (_exports, _emberLocalStorage) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Service.extend({
+    settings: (0, _emberLocalStorage.storageFor)('settings')
+  });
+
+  _exports.default = _default;
 });
 ;define("pedals-exercise/services/store", ["exports", "ember-data/store"], function (_exports, _store) {
   "use strict";
@@ -1991,15 +2016,20 @@
   });
   _exports.default = void 0;
 
-  const Storage = _object.default.extend(); // Uncomment if you would like to set initialState
-
+  // import StorageObject from 'ember-local-storage/local/object';
+  // // const Storage = StorageObject.extend();
+  // class SettingsStorage extends StorageObject {
+  //   initialState() {
+  //     return { counter: 0 };
+  //   }
+  // }
+  // export default SettingsStorage;
+  const Storage = _object.default.extend();
 
   Storage.reopenClass({
     initialState() {
       return {
-        gamepadId: undefined,
-        accAxis: 0,
-        brakeAxis: 0
+        counter: 0
       };
     }
 
@@ -2162,7 +2192,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+d631f533"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+4edede9d"});
           }
         
 //# sourceMappingURL=pedals-exercise.map

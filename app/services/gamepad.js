@@ -1,16 +1,29 @@
 import Service from '@ember/service';
 import { storageFor } from 'ember-local-storage';
 import { tracked } from '@glimmer/tracking';
+import { computed } from '@ember/object';
+import { get, set } from '@ember/object';
 
 export default class GamepadService extends Service {
-    @tracked
-    settings = storageFor('settings');
+
+    // gamepadId = localStorage.get()0,
+    // accAxis: 0,
+    // brakeAxis: 0
+    @computed
+    get settings() {
+        return {
+          gamepadId: 0,
+          accAxis: 2,
+          brakeAxis: 3
+        };
+    }
 
     @tracked
     controllers = {};
 
     get accValue() {
-        let result = 0;
+        let result = this.settings.counter;
+
         if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.accAxis == 'number')) {
             result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis]
         }
@@ -19,7 +32,7 @@ export default class GamepadService extends Service {
 
     get brakeValue() {
         let result = 0;
-        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.accAxis == 'number'))  {
+        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.brakeAxis == 'number')) {
             result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis]
         }
         return result;
