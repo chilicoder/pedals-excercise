@@ -9,9 +9,14 @@ export default class PlSettingsComponent extends Component {
         return this.gamepad.settings;
     }
 
+    get axes() {
+        return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    }
+
     get gamepadAxis() {
-        let gamepadId = this.settings.gamepadId;
-        return this.gamepad.controller[gamepadId].axes;
+        let gamepadId = this.settings.get('gamepadId');
+        let controller = this.gamepad.controller;
+        return (typeof controller == 'object') ? controller[gamepadId].axes : 0;
     }
 
     @action submit() {
@@ -20,16 +25,16 @@ export default class PlSettingsComponent extends Component {
 
     @action
     changeGamepadId(event) {
-        this.settings.gamepadId = Number(event.target.value);
+        this.settings.set('gamepadId', Number(event.target.value));
     }
 
     @action
     changeAccAxis(event) {
-        this.settings.accAxis = Number(event.target.value);
+        this.settings.set('accAxis', Number(event.target.value));
     }
 
     @action
     changeBrakeAxis(event) {
-        this.settings.brakeAxis = Number(event.target.value);
+        this.settings.set('brakeAxis', Number(event.target.value));
     }
 }

@@ -1032,56 +1032,38 @@
   const __COLOCATED_TEMPLATE__ = Ember.HTMLBars.template(
   /*
     <BsForm {{on 'submit' this.submit}} as |form|>
-      <form.group>
-          <label for="gamepadSelect">GamepadID</label>
-          <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change'
-        this.changeGamepadId}}>
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-          </select>
-      </form.group>
-      <form.group>
-          <label for="AccAxeSelect">Acceleration Axe</label>
-          <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-          </select>
-      </form.group>
-      <form.group>
-          <label for="BrakeAxeSelect">Brake Axe</label>
-          <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change'
+    <form.group>
+      <label for="gamepadSelect">GamepadID</label>
+      <select class="form-control" id="gamepadSelect" {{on 'change' this.changeGamepadId}}>
+        {{#each this.axes as |axis|}}
+          <option selected={{if (eq axis this.settings.gamepadId) "selected"}}>{{axis}}</option>
+        {{/each}}
+      </select>
+    </form.group>
+    <form.group>
+      <label for="AccAxeSelect">Acceleration Axe ({{this.gamepad.accValue}})</label>
+      <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
+        {{#each this.axes as |axis|}}
+          <option selected={{if (eq axis this.settings.accAxis) "selected"}}>{{axis}}</option>
+        {{/each}}
+      </select>
+    </form.group>
+    <form.group>
+      <label for="BrakeAxeSelect">Brake Axe ({{this.gamepad.brakeValue}})</label>
+      <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change'
         this.changeBrakeAxis}}>
-              <option>0</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-          </select>
-      </form.group>
-      <form.submitButton>Save</form.submitButton>
+        {{#each this.axes as |axis|}}
+          <option selected={{if (eq axis this.settings.brakeAxis) "selected"}}>{{axis}}</option>
+        {{/each}}
+      </select>
+    </form.group>
+    <form.submitButton>Save</form.submitButton>
   </BsForm>
-  {{this.gamepad.accValue}} - {{this.gamepad.brakeValue}}
+  
   */
   {
-    "id": "u3bg0V/1",
-    "block": "{\"symbols\":[\"form\"],\"statements\":[[8,\"bs-form\",[[4,[38,0],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[16,2,[32,0,[\"settings\",\"gamepadId\"]]],[4,[38,0],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n        \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe\"],[13],[2,\"\\n        \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,0],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"0\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"1\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"2\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"3\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"4\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"5\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"6\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"7\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"8\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"9\"],[13],[2,\"\\n            \"],[10,\"option\"],[12],[2,\"10\"],[13],[2,\"\\n        \"],[13],[2,\"\\n    \"]],\"parameters\":[]}]]],[2,\"\\n    \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\" - \"],[1,[32,0,[\"gamepad\",\"brakeValue\"]]]],\"hasEval\":false,\"upvars\":[\"on\"]}",
+    "id": "pKbJ2i5g",
+    "block": "{\"symbols\":[\"form\",\"axis\",\"axis\",\"axis\"],\"statements\":[[8,\"bs-form\",[[4,[38,2],[\"submit\",[32,0,[\"submit\"]]],null]],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n  \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"label\"],[14,\"for\",\"gamepadSelect\"],[12],[2,\"GamepadID\"],[13],[2,\"\\n    \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"gamepadSelect\"],[4,[38,2],[\"change\",[32,0,[\"changeGamepadId\"]]],null],[12],[2,\"\\n\"],[6,[37,4],[[30,[36,3],[[30,[36,3],[[32,0,[\"axes\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"        \"],[10,\"option\"],[15,\"selected\",[30,[36,1],[[30,[36,0],[[32,4],[32,0,[\"settings\",\"gamepadId\"]]],null],\"selected\"],null]],[12],[1,[32,4]],[13],[2,\"\\n\"]],\"parameters\":[4]}]]],[2,\"    \"],[13],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n  \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"label\"],[14,\"for\",\"AccAxeSelect\"],[12],[2,\"Acceleration Axe (\"],[1,[32,0,[\"gamepad\",\"accValue\"]]],[2,\")\"],[13],[2,\"\\n    \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"AccAxeSelect\"],[16,2,[32,0,[\"settings\",\"accAxis\"]]],[4,[38,2],[\"change\",[32,0,[\"changeAccAxis\"]]],null],[12],[2,\"\\n\"],[6,[37,4],[[30,[36,3],[[30,[36,3],[[32,0,[\"axes\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"        \"],[10,\"option\"],[15,\"selected\",[30,[36,1],[[30,[36,0],[[32,3],[32,0,[\"settings\",\"accAxis\"]]],null],\"selected\"],null]],[12],[1,[32,3]],[13],[2,\"\\n\"]],\"parameters\":[3]}]]],[2,\"    \"],[13],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n  \"],[8,[32,1,[\"group\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"\\n    \"],[10,\"label\"],[14,\"for\",\"BrakeAxeSelect\"],[12],[2,\"Brake Axe (\"],[1,[32,0,[\"gamepad\",\"brakeValue\"]]],[2,\")\"],[13],[2,\"\\n    \"],[11,\"select\"],[24,0,\"form-control\"],[24,1,\"BrakeAxeSelect\"],[16,2,[32,0,[\"settings\",\"brakeAxis\"]]],[4,[38,2],[\"change\",[32,0,[\"changeBrakeAxis\"]]],null],[12],[2,\"\\n\"],[6,[37,4],[[30,[36,3],[[30,[36,3],[[32,0,[\"axes\"]]],null]],null]],null,[[\"default\"],[{\"statements\":[[2,\"        \"],[10,\"option\"],[15,\"selected\",[30,[36,1],[[30,[36,0],[[32,2],[32,0,[\"settings\",\"brakeAxis\"]]],null],\"selected\"],null]],[12],[1,[32,2]],[13],[2,\"\\n\"]],\"parameters\":[2]}]]],[2,\"    \"],[13],[2,\"\\n  \"]],\"parameters\":[]}]]],[2,\"\\n  \"],[8,[32,1,[\"submitButton\"]],[],[[],[]],[[\"default\"],[{\"statements\":[[2,\"Save\"]],\"parameters\":[]}]]],[2,\"\\n\"]],\"parameters\":[1]}]]],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"eq\",\"if\",\"on\",\"-track-array\",\"each\"]}",
     "meta": {
       "moduleName": "pedals-exercise/components/pedals-settings.hbs"
     }
@@ -1098,9 +1080,14 @@
       return this.gamepad.settings;
     }
 
+    get axes() {
+      return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    }
+
     get gamepadAxis() {
-      let gamepadId = this.settings.gamepadId;
-      return this.gamepad.controller[gamepadId].axes;
+      let gamepadId = this.settings.get('gamepadId');
+      let controller = this.gamepad.controller;
+      return typeof controller == 'object' ? controller[gamepadId].axes : 0;
     }
 
     submit() {
@@ -1108,15 +1095,15 @@
     }
 
     changeGamepadId(event) {
-      this.settings.gamepadId = Number(event.target.value);
+      this.settings.set('gamepadId', Number(event.target.value));
     }
 
     changeAccAxis(event) {
-      this.settings.accAxis = Number(event.target.value);
+      this.settings.set('accAxis', Number(event.target.value));
     }
 
     changeBrakeAxis(event) {
-      this.settings.brakeAxis = Number(event.target.value);
+      this.settings.set('brakeAxis', Number(event.target.value));
     }
 
   }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "gamepad", [_dec], {
@@ -1257,6 +1244,25 @@
     enumerable: true,
     get: function () {
       return _namedBlockInvocation.default;
+    }
+  });
+});
+;define("pedals-exercise/helpers/and", ["exports", "ember-truth-helpers/helpers/and"], function (_exports, _and) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _and.default;
+    }
+  });
+  Object.defineProperty(_exports, "and", {
+    enumerable: true,
+    get: function () {
+      return _and.and;
     }
   });
 });
@@ -1422,6 +1428,190 @@
     }
   });
 });
+;define("pedals-exercise/helpers/eq", ["exports", "ember-truth-helpers/helpers/equal"], function (_exports, _equal) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _equal.default;
+    }
+  });
+  Object.defineProperty(_exports, "equal", {
+    enumerable: true,
+    get: function () {
+      return _equal.equal;
+    }
+  });
+});
+;define("pedals-exercise/helpers/gt", ["exports", "ember-truth-helpers/helpers/gt"], function (_exports, _gt) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _gt.default;
+    }
+  });
+  Object.defineProperty(_exports, "gt", {
+    enumerable: true,
+    get: function () {
+      return _gt.gt;
+    }
+  });
+});
+;define("pedals-exercise/helpers/gte", ["exports", "ember-truth-helpers/helpers/gte"], function (_exports, _gte) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _gte.default;
+    }
+  });
+  Object.defineProperty(_exports, "gte", {
+    enumerable: true,
+    get: function () {
+      return _gte.gte;
+    }
+  });
+});
+;define("pedals-exercise/helpers/is-array", ["exports", "ember-truth-helpers/helpers/is-array"], function (_exports, _isArray) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _isArray.default;
+    }
+  });
+  Object.defineProperty(_exports, "isArray", {
+    enumerable: true,
+    get: function () {
+      return _isArray.isArray;
+    }
+  });
+});
+;define("pedals-exercise/helpers/is-empty", ["exports", "ember-truth-helpers/helpers/is-empty"], function (_exports, _isEmpty) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _isEmpty.default;
+    }
+  });
+});
+;define("pedals-exercise/helpers/is-equal", ["exports", "ember-truth-helpers/helpers/is-equal"], function (_exports, _isEqual) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _isEqual.default;
+    }
+  });
+  Object.defineProperty(_exports, "isEqual", {
+    enumerable: true,
+    get: function () {
+      return _isEqual.isEqual;
+    }
+  });
+});
+;define("pedals-exercise/helpers/lt", ["exports", "ember-truth-helpers/helpers/lt"], function (_exports, _lt) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _lt.default;
+    }
+  });
+  Object.defineProperty(_exports, "lt", {
+    enumerable: true,
+    get: function () {
+      return _lt.lt;
+    }
+  });
+});
+;define("pedals-exercise/helpers/lte", ["exports", "ember-truth-helpers/helpers/lte"], function (_exports, _lte) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _lte.default;
+    }
+  });
+  Object.defineProperty(_exports, "lte", {
+    enumerable: true,
+    get: function () {
+      return _lte.lte;
+    }
+  });
+});
+;define("pedals-exercise/helpers/not-eq", ["exports", "ember-truth-helpers/helpers/not-equal"], function (_exports, _notEqual) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _notEqual.default;
+    }
+  });
+  Object.defineProperty(_exports, "notEqualHelper", {
+    enumerable: true,
+    get: function () {
+      return _notEqual.notEqualHelper;
+    }
+  });
+});
+;define("pedals-exercise/helpers/not", ["exports", "ember-truth-helpers/helpers/not"], function (_exports, _not) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _not.default;
+    }
+  });
+  Object.defineProperty(_exports, "not", {
+    enumerable: true,
+    get: function () {
+      return _not.not;
+    }
+  });
+});
 ;define("pedals-exercise/helpers/on-document", ["exports", "ember-on-helper/helpers/on-document"], function (_exports, _onDocument) {
   "use strict";
 
@@ -1458,6 +1648,25 @@
     enumerable: true,
     get: function () {
       return _on.default;
+    }
+  });
+});
+;define("pedals-exercise/helpers/or", ["exports", "ember-truth-helpers/helpers/or"], function (_exports, _or) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _or.default;
+    }
+  });
+  Object.defineProperty(_exports, "or", {
+    enumerable: true,
+    get: function () {
+      return _or.or;
     }
   });
 });
@@ -1536,6 +1745,25 @@
     enumerable: true,
     get: function () {
       return _willDestroy.default;
+    }
+  });
+});
+;define("pedals-exercise/helpers/xor", ["exports", "ember-truth-helpers/helpers/xor"], function (_exports, _xor) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  Object.defineProperty(_exports, "default", {
+    enumerable: true,
+    get: function () {
+      return _xor.default;
+    }
+  });
+  Object.defineProperty(_exports, "xor", {
+    enumerable: true,
+    get: function () {
+      return _xor.xor;
     }
   });
 });
@@ -1891,33 +2119,37 @@
   });
   _exports.default = void 0;
 
-  var _dec, _dec2, _class, _descriptor, _temp;
+  var _dec, _dec2, _class, _descriptor, _descriptor2, _temp;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
   function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
-
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
 
-  let GamepadService = (_dec = Ember.computed, _dec2 = Ember._tracked, (_class = (_temp = class GamepadService extends Ember.Service {
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'proposal-class-properties is enabled and runs after the decorators transform.'); }
+
+  let GamepadService = (_dec = (0, _emberLocalStorage.storageFor)('settings'), _dec2 = Ember._tracked, (_class = (_temp = class GamepadService extends Ember.Service {
     // gamepadId = localStorage.get()0,
     // accAxis: 0,
     // brakeAxis: 0
-    get settings() {
-      return {
-        gamepadId: 0,
-        accAxis: 2,
-        brakeAxis: 3
-      };
-    }
-
+    // @computed
+    // get settings() {
+    //     return {
+    //       gamepadId: 0,
+    //       accAxis: 2,
+    //       brakeAxis: 3
+    //     };
+    // }
     get accValue() {
-      let result = this.settings.counter;
+      let result = this.settings.get('counter');
+      let gamepadId = this.settings.get('gamepadId');
+      let accAxis = this.settings.get('accAxis');
 
-      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.accAxis == 'number') {
-        result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis];
+      if (typeof gamepadId == 'number' && typeof accAxis == 'number') {
+        if (typeof this.controllers[gamepadId] == 'object') {
+          result = this.controllers[gamepadId].axes[accAxis];
+        }
       }
 
       return result;
@@ -1925,9 +2157,13 @@
 
     get brakeValue() {
       let result = 0;
+      let gamepadId = this.settings.get('gamepadId');
+      let brakeAxis = this.settings.get('brakeAxis');
 
-      if (typeof this.settings.gamepadId == 'number' && typeof this.settings.brakeAxis == 'number') {
-        result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis];
+      if (typeof gamepadId == 'number' && typeof brakeAxis == 'number') {
+        if (typeof this.controllers[gamepadId] == 'object') {
+          result = this.controllers[gamepadId].axes[brakeAxis];
+        }
       }
 
       return result;
@@ -1936,7 +2172,9 @@
     constructor() {
       super(...arguments);
 
-      _initializerDefineProperty(this, "controllers", _descriptor, this);
+      _initializerDefineProperty(this, "settings", _descriptor, this);
+
+      _initializerDefineProperty(this, "controllers", _descriptor2, this);
 
       window.addEventListener("gamepadconnected", this.connecthandler.bind(this));
       window.addEventListener("gamepaddisconnected", this.disconnecthandler.bind(this));
@@ -1971,7 +2209,12 @@
       }
     }
 
-  }, _temp), (_applyDecoratedDescriptor(_class.prototype, "settings", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "settings"), _class.prototype), _descriptor = _applyDecoratedDescriptor(_class.prototype, "controllers", [_dec2], {
+  }, _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "settings", [_dec], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "controllers", [_dec2], {
     configurable: true,
     enumerable: true,
     writable: true,
@@ -2029,7 +2272,9 @@
   Storage.reopenClass({
     initialState() {
       return {
-        counter: 0
+        gamepadId: 0,
+        accAxis: 2,
+        brakeAxis: 5
       };
     }
 
@@ -2192,7 +2437,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+4edede9d"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+27ee1845"});
           }
         
 //# sourceMappingURL=pedals-exercise.map

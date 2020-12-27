@@ -9,31 +9,42 @@ export default class GamepadService extends Service {
     // gamepadId = localStorage.get()0,
     // accAxis: 0,
     // brakeAxis: 0
-    @computed
-    get settings() {
-        return {
-          gamepadId: 0,
-          accAxis: 2,
-          brakeAxis: 3
-        };
-    }
+    // @computed
+    // get settings() {
+    //     return {
+    //       gamepadId: 0,
+    //       accAxis: 2,
+    //       brakeAxis: 3
+    //     };
+    // }
+
+    @storageFor('settings') settings;
 
     @tracked
     controllers = {};
 
     get accValue() {
-        let result = this.settings.counter;
+        let result = this.settings.get('counter');
+        let gamepadId = this.settings.get('gamepadId');
+        let accAxis = this.settings.get('accAxis');
 
-        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.accAxis == 'number')) {
-            result = this.controllers[this.settings.gamepadId].axes[this.settings.accAxis]
+        if ((typeof gamepadId == 'number') && (typeof accAxis == 'number')) {
+          if (typeof this.controllers[gamepadId] == 'object') {
+            result = this.controllers[gamepadId].axes[accAxis];
+          }
         }
         return result;
     }
 
     get brakeValue() {
         let result = 0;
-        if ((typeof this.settings.gamepadId == 'number') && (typeof this.settings.brakeAxis == 'number')) {
-            result = this.controllers[this.settings.gamepadId].axes[this.settings.brakeAxis]
+        let gamepadId = this.settings.get('gamepadId');
+        let brakeAxis = this.settings.get('brakeAxis');
+
+        if ((typeof gamepadId == 'number') && (typeof brakeAxis == 'number')) {
+          if (typeof this.controllers[gamepadId] == 'object') {
+            result = this.controllers[gamepadId].axes[brakeAxis];
+          }
         }
         return result;
     }

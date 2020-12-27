@@ -1,47 +1,28 @@
 <BsForm {{on 'submit' this.submit}} as |form|>
-    <form.group>
-        <label for="gamepadSelect">GamepadID</label>
-        <select class="form-control" id="gamepadSelect" value={{this.settings.gamepadId}} {{on 'change'
-      this.changeGamepadId}}>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
-    </form.group>
-    <form.group>
-        <label for="AccAxeSelect">Acceleration Axe</label>
-        <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-        </select>
-    </form.group>
-    <form.group>
-        <label for="BrakeAxeSelect">Brake Axe</label>
-        <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change'
+  <form.group>
+    <label for="gamepadSelect">GamepadID</label>
+    <select class="form-control" id="gamepadSelect" {{on 'change' this.changeGamepadId}}>
+      {{#each this.axes as |axis|}}
+        <option selected={{if (eq axis this.settings.gamepadId) "selected"}}>{{axis}}</option>
+      {{/each}}
+    </select>
+  </form.group>
+  <form.group>
+    <label for="AccAxeSelect">Acceleration Axe ({{this.gamepad.accValue}})</label>
+    <select class="form-control" id="AccAxeSelect" value={{this.settings.accAxis}} {{on 'change' this.changeAccAxis}}>
+      {{#each this.axes as |axis|}}
+        <option selected={{if (eq axis this.settings.accAxis) "selected"}}>{{axis}}</option>
+      {{/each}}
+    </select>
+  </form.group>
+  <form.group>
+    <label for="BrakeAxeSelect">Brake Axe ({{this.gamepad.brakeValue}})</label>
+    <select class="form-control" id="BrakeAxeSelect" value={{this.settings.brakeAxis}} {{on 'change'
       this.changeBrakeAxis}}>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-        </select>
-    </form.group>
-    <form.submitButton>Save</form.submitButton>
+      {{#each this.axes as |axis|}}
+        <option selected={{if (eq axis this.settings.brakeAxis) "selected"}}>{{axis}}</option>
+      {{/each}}
+    </select>
+  </form.group>
+  <form.submitButton>Save</form.submitButton>
 </BsForm>
-{{this.gamepad.accValue}} - {{this.gamepad.brakeValue}}
