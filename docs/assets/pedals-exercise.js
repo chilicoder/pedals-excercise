@@ -919,7 +919,7 @@
   });
   _exports.default = void 0;
 
-  var _dec, _dec2, _class, _descriptor, _temp;
+  var _dec, _dec2, _dec3, _dec4, _class, _descriptor, _descriptor2, _descriptor3, _temp;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -933,30 +933,36 @@
   /*
     <div {{did-insert (action this.setupPlot)}}>
   </div>
+  <div>{{this.lastAccValue}}</div>
+  <div>{{this.lastBrakeValue}}</div>
   */
   {
-    "id": "7+JELsKF",
-    "block": "{\"symbols\":[],\"statements\":[[11,\"div\"],[4,[38,1],[[30,[36,0],[[32,0],[32,0,[\"setupPlot\"]]],null]],null],[12],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[\"action\",\"did-insert\"]}",
+    "id": "sWb2wAi8",
+    "block": "{\"symbols\":[],\"statements\":[[11,\"div\"],[4,[38,1],[[30,[36,0],[[32,0],[32,0,[\"setupPlot\"]]],null]],null],[12],[2,\"\\n\"],[13],[2,\"\\n\"],[10,\"div\"],[12],[1,[32,0,[\"lastAccValue\"]]],[13],[2,\"\\n\"],[10,\"div\"],[12],[1,[32,0,[\"lastBrakeValue\"]]],[13]],\"hasEval\":false,\"upvars\":[\"action\",\"did-insert\"]}",
     "meta": {
       "moduleName": "pedals-exercise/components/pedals-position-chart.hbs"
     }
   });
 
-  let PlChartComponent = (_dec = Ember.inject.service, _dec2 = Ember._action, (_class = (_temp = class PlChartComponent extends _component.default {
+  let PlChartComponent = (_dec = Ember.inject.service, _dec2 = Ember._tracked, _dec3 = Ember._tracked, _dec4 = Ember._action, (_class = (_temp = class PlChartComponent extends _component.default {
     constructor(...args) {
       super(...args);
 
       _initializerDefineProperty(this, "gamepad", _descriptor, this);
 
-      _defineProperty(this, "acc", [Math.random() * 2]);
+      _initializerDefineProperty(this, "lastAccValue", _descriptor2, this);
 
-      _defineProperty(this, "brake", [Math.random() * 2]);
+      _initializerDefineProperty(this, "lastBrakeValue", _descriptor3, this);
+
+      _defineProperty(this, "acc", [this.lastAccValue]);
+
+      _defineProperty(this, "brake", [this.lastBrakeValue]);
 
       _defineProperty(this, "time", [new Date()]);
     }
 
     setupPlot(element) {
-      setInterval(this._getLastPositins.bind(this), 25);
+      setInterval(this._getLastPositins.bind(this), 10);
       setInterval(this._replot.bind(this, element), 100);
     }
 
@@ -969,7 +975,7 @@
           range: [start, end]
         },
         yaxis: {
-          range: [-1, 1]
+          range: [0, 100]
         },
         margin: {
           t: 0
@@ -990,8 +996,10 @@
       // let lastAcc = this.acc[this.acc.length - 1];
       // let lastBrake = this.brake[this.brake.length - 1];
       // let lastAcc = this.acc[this.acc.length-1];
-      this.acc.push(this.gamepad.accValue);
-      this.brake.push(this.gamepad.brakeValue);
+      this.lastAccValue = 50 * (1 - this.gamepad.accValue);
+      this.lastBrakeValue = 50 * (1 - this.gamepad.brakeValue);
+      this.acc.push(this.lastAccValue);
+      this.brake.push(this.lastBrakeValue);
       this.time.push(new Date()); // let brake = Math.random() * 100;
       // let time = new Date();
       // positions.push({ acc, brake, time })
@@ -1006,7 +1014,21 @@
     enumerable: true,
     writable: true,
     initializer: null
-  }), _applyDecoratedDescriptor(_class.prototype, "setupPlot", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "setupPlot"), _class.prototype)), _class));
+  }), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "lastAccValue", [_dec2], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return Math.random() * 100;
+    }
+  }), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, "lastBrakeValue", [_dec3], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: function () {
+      return Math.random() * 100;
+    }
+  }), _applyDecoratedDescriptor(_class.prototype, "setupPlot", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "setupPlot"), _class.prototype)), _class));
   _exports.default = PlChartComponent;
 
   Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, PlChartComponent);
@@ -2437,7 +2459,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+27ee1845"});
+            require("pedals-exercise/app")["default"].create({"name":"pedals-exercise","version":"0.0.0+d0adb4bf"});
           }
         
 //# sourceMappingURL=pedals-exercise.map
